@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_map_tile_caching/flutter_map_tile_caching.dart';
 import 'package:provider/provider.dart';
@@ -46,8 +46,8 @@ class _MainScreenState extends State<MainScreen> {
                 .watchChanges(rootParts: [RootParts.recovery]),
             builder: (context, _) => FutureBuilder<List<RecoveredRegion>>(
               future: FMTC.instance.rootDirectory.recovery.failedRegions,
-              builder: (context, snapshot) => Badge(
-                position: BadgePosition.topEnd(top: -5, end: -6),
+              builder: (context, snapshot) => badges.Badge(
+                position: badges.BadgePosition.topEnd(top: -5, end: -6),
                 animationDuration: const Duration(milliseconds: 100),
                 showBadge: _currentPageIndex != 3 &&
                     (snapshot.data?.isNotEmpty ?? false),
